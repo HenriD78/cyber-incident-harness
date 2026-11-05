@@ -1,0 +1,21 @@
+{
+  "resume": "L'incident combine deux campagnes distinctes sans lien technique prouvé. Une première attaque web a mené à une compromission du serveur via injection SQL et brute force, aboutissant à l'exfiltration massive de données clients. Parallèlement, un poste de travail (PC-COMPTA-07) a été infecté par un malware PowerShell via phishing, présentant des capacités d'espionnage et de persistance, bien que les communications C2 aient été bloquées.",
+  "constat_ids": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13"
+  ],
+  "limites": [
+    "Le script PowerShell a été analysé en version désarmée, certaines fonctionnalités pourraient différer de la version réelle."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "version": "20.1",
+  "sha256": "539a843a7b53ed9749740b2123dddae3726b1a4831841c32aca740b011b910b5",
+  "verifie_le": "2026-11-05T16:39:55.833558+00:00",
+  "source": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/index.json",
+  "fraicheur": "a_jour",
+  "derniere_version": "20.1"
+}

@@ -1,0 +1,49 @@
+{
+  "statut": "incomplet",
+  "erreurs": [
+    "confinement : echec — propose_containment : 3 appels invalides ; dernier refus : Cible non vérifiée dans les preuves/IOC",
+    "Étape incomplète : proposal",
+    "Étape incomplète : decision"
+  ],
+  "phases": {
+    "preuves": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 3
+    },
+    "ioc": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "mitre": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "regles": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "confinement": {
+      "statut": "echec",
+      "raisons": [
+        "propose_containment : 3 appels invalides ; dernier refus : Cible non vérifiée dans les preuves/IOC"
+      ],
+      "invocations": 1
+    },
+    "protocole": {
+      "statut": "ignoree",
+      "raisons": [
+        "Aucun accord humain : protocole interdit"
+      ],
+      "invocations": 0
+    },
+    "rapport": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    }
+  }
+}

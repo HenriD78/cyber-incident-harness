@@ -1,0 +1,18 @@
+[
+  {
+    "action": "Bloquer l'IP 203.0.113.42 au niveau du pare-feu",
+    "cible": "Serveur web web-01",
+    "justification": "Cette IP a mené des injections SQL contre le serveur web et tenté d'exfiltrer des données sensibles (admin/export). Bloquer empêche toute nouvelle activité malveillante.",
+    "preuves": "web_access.log:7-51, app.log:7-22",
+    "statut": "approuvée par l'analyste, à exécuter par l'équipe d'exploitation",
+    "horodatage": "2026-11-03T22:27:36Z"
+  },
+  {
+    "action": "Désactiver le compte CORP\\m.durand temporairement",
+    "cible": "Poste PC-COMPTA-07",
+    "justification": "L'utilisateur a ouvert la pièce jointe malveillante facture_2024-11.ps1 depuis son courriel Outlook. La désactivation du compte empêche toute nouvelle exécution de scripts malveillants depuis ce poste isolé.",
+    "preuves": "edr_events.jsonl:1-5, facture_2024-11.ps1.txt:1-24",
+    "statut": "approuvée par l'analyste, à exécuter par l'équipe d'exploitation",
+    "horodatage": "2026-11-03T22:27:46Z"
+  }
+]

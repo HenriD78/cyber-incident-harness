@@ -1,0 +1,9 @@
+{
+  "compile": false,
+  "test_concluant": false,
+  "verdict": "À REVOIR",
+  "regle_sha256": "20306caece1771970abf98f2ad8ec7417ccc49bec5570069a2ecfd973b0d50d8",
+  "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+  "erreur": "line 18: unreferenced string \"$reg_path\"",
+  "tentative": 3
+}

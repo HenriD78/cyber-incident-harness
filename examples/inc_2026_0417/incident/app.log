@@ -1,0 +1,10 @@
+2024-11-15T21:18:22Z web-01 app[2187]: ERROR: SQL syntax error near '' OR '1'='1' at line 1
+2024-11-15T21:18:25Z web-01 app[2187]: ERROR: DROP TABLE not permitted in this context
+2024-11-15T21:18:30Z web-01 app[2187]: WARNING: Unusual query pattern detected - information_schema access
+2024-11-15T21:22:15Z web-01 app[2187]: WARNING: SELECT on sensitive table 'users' - columns: username,password,email
+2024-11-15T21:22:30Z web-01 app[2187]: INFO: Query returned 1 row(s) for user 'admin'
+2024-11-15T22:10:15Z web-01 app[2187]: WARNING: Boolean-based injection pattern detected (AND 1=1)
+2024-11-15T22:20:06Z web-01 app[2187]: INFO: Successful login for user 'admin' from 203.0.113.42
+2024-11-15T22:21:45Z web-01 app[2187]: WARNING: Large data export initiated - table: customers, format: sql
+2024-11-16T01:00:11Z web-01 app[2187]: WARNING: Backup file download - size: 4.5MB
+2024-11-16T01:00:45Z web-01 app[2187]: ALERT: Bulk data export - customers_full.csv (2.3MB)

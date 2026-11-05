@@ -1,0 +1,370 @@
+[
+  {
+    "type": "ip",
+    "valeur": "203.0.113.42",
+    "references": [
+      {
+        "fichier": "app.log",
+        "ligne": 7,
+        "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 7,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 8,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 9,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 10,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 11,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 12,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 13,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 14,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 15,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 16,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 17,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 18,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 19,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 20,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 21,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 22,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 23,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 24,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 25,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 26,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 30,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 31,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 32,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 33,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 34,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 35,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 36,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 37,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 38,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 39,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 40,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 41,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 42,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 43,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 44,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 45,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 46,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 47,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 50,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 51,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      }
+    ],
+    "contexte": "IP source des scans de répertoires sensibles et des tentatives d'injection SQL",
+    "confiance": "haute",
+    "constat_ids": [
+      "C1",
+      "C2"
+    ],
+    "derivation_id": null
+  },
+  {
+    "type": "ip",
+    "valeur": "192.168.1.100",
+    "references": [
+      {
+        "fichier": "edr_events.jsonl",
+        "ligne": 6,
+        "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+      },
+      {
+        "fichier": "facture_2024-11.ps1.txt",
+        "ligne": 22,
+        "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+      },
+      {
+        "fichier": "facture_2024-11.ps1.txt",
+        "ligne": 144,
+        "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+      }
+    ],
+    "contexte": "Cible de connexion réseau bloquée par le proxy et présente dans le script malveillant",
+    "confiance": "haute",
+    "constat_ids": [
+      "C7"
+    ],
+    "derivation_id": null
+  },
+  {
+    "type": "compte",
+    "valeur": "admin",
+    "references": [
+      {
+        "fichier": "app.log",
+        "ligne": 5,
+        "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+      },
+      {
+        "fichier": "app.log",
+        "ligne": 7,
+        "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+      },
+      {
+        "fichier": "ticket_INC-2026-0417.md",
+        "ligne": 7,
+        "sha256": "bea9d6b0527f383a478611e5b4f979c6aba91a9af4bfcfefda66bd2178dc81bb"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 8,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 20,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 26,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 44,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 45,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 46,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 47,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 50,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 51,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 55,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 56,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      },
+      {
+        "fichier": "web_access.log",
+        "ligne": 57,
+        "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+      }
+    ],
+    "contexte": "Compte administrateur compromis utilisé pour l'exfiltration de données",
+    "confiance": "haute",
+    "constat_ids": [
+      "C4",
+      "C5"
+    ],
+    "derivation_id": null
+  },
+  {
+    "type": "fichier",
+    "valeur": "facture_2024-11.ps1",
+    "references": [
+      {
+        "fichier": "edr_events.jsonl",
+        "ligne": 1,
+        "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+      },
+      {
+        "fichier": "edr_events.jsonl",
+        "ligne": 2,
+        "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+      },
+      {
+        "fichier": "ticket_INC-2026-0417.md",
+        "ligne": 12,
+        "sha256": "bea9d6b0527f383a478611e5b4f979c6aba91a9af4bfcfefda66bd2178dc81bb"
+      },
+      {
+        "fichier": "ticket_INC-2026-0417.md",
+        "ligne": 13,
+        "sha256": "bea9d6b0527f383a478611e5b4f979c6aba91a9af4bfcfefda66bd2178dc81bb"
+      }
+    ],
+    "contexte": "Script PowerShell malveillant avec capacités de bypass AMSI, persistance et keylogging",
+    "confiance": "haute",
+    "constat_ids": [
+      "C6",
+      "C8",
+      "C9",
+      "C10"
+    ],
+    "derivation_id": null
+  }
+]

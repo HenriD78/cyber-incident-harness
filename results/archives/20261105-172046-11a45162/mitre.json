@@ -1,0 +1,502 @@
+[
+  {
+    "id": "T1595",
+    "nom": "Active Scanning",
+    "description": "Adversaries may execute active reconnaissance scans to gather information that can be used during targeting. Active scans are those where the adversary probes victim infrastructure via network traffic, as opposed to other forms of reconnaissance that do not involve direct interaction.\n\nAdversaries may perform different forms of active scanning depending on what information they seek to gather. These scans can also be performed in various ways, including using native features of network protocols such as ICMP.(Citation: Botnet Scan)(Citation: OWASP Fingerprinting) Information from these scans may reveal opportunities for other forms of reconnaissance (ex: [Search Open Websites/Domains](https://attack.mitre.org/techniques/T1593) or [Search Open Technical Databases](https://attack.mitre.org/techniques/T1596)), establishing operational resources (ex: [Develop Capabilities](https://attack.mitre.org/techniques/T1587) or [Obtain Capabilities](https://attack.mitre.org/techniques/T1588)), and/or initial access (ex: [External Remote Services](https://attack.mitre.org/techniques/T1133) or [Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190)).",
+    "plateformes": [
+      "PRE"
+    ],
+    "tactiques": [
+      "reconnaissance"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1595",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C1"
+    ],
+    "justification": "Scan de répertoires administratifs et fichiers sensibles pour identifier des cibles et des données d'intérêt.",
+    "constats": [
+      {
+        "id": "C1",
+        "description": "Scan de répertoires administratifs et fichiers sensibles depuis l'IP 203.0.113.42",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "web_access.log",
+            "ligne": 8,
+            "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+          },
+          {
+            "fichier": "web_access.log",
+            "ligne": 12,
+            "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+          }
+        ],
+        "horodatage_source": "15/Nov/2024:22:15:01 +0100",
+        "utc": "2024-11-15T21:15:01Z"
+      }
+    ]
+  },
+  {
+    "id": "T1213.006",
+    "nom": "Databases",
+    "description": "Adversaries may leverage databases to mine valuable information. These databases may be hosted on-premises or in the cloud (both in platform-as-a-service and software-as-a-service environments). \n\nExamples of databases from which information may be collected include MySQL, PostgreSQL, MongoDB, Amazon Relational Database Service, Azure SQL Database, Google Firebase, and Snowflake. Databases may include a variety of information of interest to adversaries, such as usernames, hashed passwords, personally identifiable information, and financial data. Data collected from databases may be used for [Lateral Movement](https://attack.mitre.org/tactics/TA0008), [Command and Control](https://attack.mitre.org/tactics/TA0011), or [Exfiltration](https://attack.mitre.org/tactics/TA0010). Data exfiltrated from databases may also be used to extort victims or may be sold for profit.(Citation: Google Cloud Threat Intelligence UNC5537 Snowflake 2024)",
+    "plateformes": [
+      "IaaS",
+      "Linux",
+      "macOS",
+      "SaaS",
+      "Windows"
+    ],
+    "tactiques": [
+      "collection"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1213/006",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C2",
+      "C3"
+    ],
+    "justification": "Utilisation d'injections SQL pour énumérer et extraire des données sensibles depuis la base de données 'users'.",
+    "constats": [
+      {
+        "id": "C2",
+        "description": "Tentatives d'injection SQL réussies sur le paramètre 'q' de /search, permettant l'énumération de la table 'users'",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "web_access.log",
+            "ligne": 23,
+            "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+          },
+          {
+            "fichier": "app.log",
+            "ligne": 3,
+            "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+          }
+        ],
+        "horodatage_source": "15/Nov/2024:22:18:30 +0100",
+        "utc": "2024-11-15T21:18:30Z"
+      },
+      {
+        "id": "C3",
+        "description": "Extraction de données sensibles (table users) via injection SQL",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "web_access.log",
+            "ligne": 25,
+            "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+          },
+          {
+            "fichier": "app.log",
+            "ligne": 4,
+            "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+          }
+        ],
+        "horodatage_source": "15/Nov/2024:22:22:15 +0100",
+        "utc": "2024-11-15T21:22:15Z"
+      }
+    ]
+  },
+  {
+    "id": "T1110",
+    "nom": "Brute Force",
+    "description": "Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained.(Citation: TrendMicro Pawn Storm Dec 2020) Without knowledge of the password for an account or set of accounts, an adversary may systematically guess the password using a repetitive or iterative mechanism.(Citation: Dragos Crashoverride 2018) Brute forcing passwords can take place via interaction with a service that will check the validity of those credentials or offline against previously acquired credential data, such as password hashes.\n\nBrute forcing credentials may take place at various points during a breach. For example, adversaries may attempt to brute force access to [Valid Accounts](https://attack.mitre.org/techniques/T1078) within a victim environment leveraging knowledge gathered from other post-compromise behaviors such as [OS Credential Dumping](https://attack.mitre.org/techniques/T1003), [Account Discovery](https://attack.mitre.org/techniques/T1087), or [Password Policy Discovery](https://attack.mitre.org/techniques/T1201). Adversaries may also combine brute forcing activity with behaviors such as [External Remote Services](https://attack.mitre.org/techniques/T1133) as part of Initial Access. \n\nIf an adversary guesses the correct password but fails to log in to a compromised account due to location-based conditional access policies, they may change their infrastructure until they match the victim’s location and therefore bypass those policies.(Citation: ReliaQuest Health Care Social Engineering Campaign 2024)",
+    "plateformes": [
+      "Containers",
+      "ESXi",
+      "IaaS",
+      "Identity Provider",
+      "Linux",
+      "macOS",
+      "Network Devices",
+      "Office Suite",
+      "SaaS",
+      "Windows"
+    ],
+    "tactiques": [
+      "credential-access"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1110",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C4"
+    ],
+    "justification": "Accès réussi au compte 'admin' après plusieurs tentatives infructueuses, caractéristique d'un brute force ou credential stuffing.",
+    "constats": [
+      {
+        "id": "C4",
+        "description": "Accès réussi au compte 'admin' après plusieurs tentatives infructueuses (Brute force/Credential Stuffing)",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "web_access.log",
+            "ligne": 43,
+            "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+          },
+          {
+            "fichier": "app.log",
+            "ligne": 7,
+            "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+          }
+        ],
+        "horodatage_source": "15/Nov/2024:23:20:06 +0100",
+        "utc": "2024-11-15T22:20:06Z"
+      }
+    ]
+  },
+  {
+    "id": "T1020",
+    "nom": "Automated Exfiltration",
+    "description": "Adversaries may exfiltrate data, such as sensitive documents, through the use of automated processing after being gathered during Collection.(Citation: ESET Gamaredon June 2020) \n\nWhen automated exfiltration is used, other exfiltration techniques likely apply as well to transfer the information out of the network, such as [Exfiltration Over C2 Channel](https://attack.mitre.org/techniques/T1041) and [Exfiltration Over Alternative Protocol](https://attack.mitre.org/techniques/T1048).",
+    "plateformes": [
+      "Linux",
+      "macOS",
+      "Network Devices",
+      "Windows"
+    ],
+    "tactiques": [
+      "exfiltration"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1020",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C5",
+      "C6"
+    ],
+    "justification": "Exfiltration de données massives (exports SQL, CSV, dumps de base de données) via l'interface d'administration.",
+    "constats": [
+      {
+        "id": "C5",
+        "description": "Exfiltration de données massives via l'interface admin (exports SQL et CSV)",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "web_access.log",
+            "ligne": 47,
+            "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+          },
+          {
+            "fichier": "app.log",
+            "ligne": 8,
+            "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+          }
+        ],
+        "horodatage_source": "15/Nov/2024:23:21:45 +0100",
+        "utc": "2024-11-15T22:21:45Z"
+      },
+      {
+        "id": "C6",
+        "description": "Téléchargement de dumps de base de données et fichiers clients",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "web_access.log",
+            "ligne": 50,
+            "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+          },
+          {
+            "fichier": "app.log",
+            "ligne": 9,
+            "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+          }
+        ],
+        "horodatage_source": "16/Nov/2024:02:00:11 +0100",
+        "utc": "2024-11-16T01:00:11Z"
+      }
+    ]
+  },
+  {
+    "id": "T1059.001",
+    "nom": "PowerShell",
+    "description": "Adversaries may abuse PowerShell commands and scripts for execution. PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system.(Citation: TechNet PowerShell) PowerShell can also be installed on Linux and macOS.(Citation: Powershell installation) Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code. Examples include the <code>Start-Process</code> cmdlet which can be used to run an executable and the <code>Invoke-Command</code> cmdlet which runs a command locally or on a remote computer (though administrator permissions are required to use PowerShell to connect to remote systems).\n\nPowerShell may also be used to download and run executables from the Internet, which can be executed from disk or in memory without touching disk.\n\nA number of PowerShell-based offensive testing tools are available, including [Empire](https://attack.mitre.org/software/S0363),  [PowerSploit](https://attack.mitre.org/software/S0194), [PoshC2](https://attack.mitre.org/software/S0378), and PSAttack.(Citation: Github PSAttack)\n\nPowerShell commands/scripts can also be executed without directly invoking the <code>powershell.exe</code> binary through interfaces to PowerShell's underlying <code>System.Management.Automation</code> assembly DLL exposed through the .NET framework and Windows Common Language Interface (CLI).(Citation: Sixdub PowerPick Jan 2016)(Citation: SilentBreak Offensive PS Dec 2015)(Citation: Microsoft PSfromCsharp APR 2014)",
+    "plateformes": [
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "tactiques": [
+      "execution"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1059/001",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C7"
+    ],
+    "justification": "Exécution d'un script PowerShell malveillant délivré via un email Outlook.",
+    "constats": [
+      {
+        "id": "C7",
+        "description": "Exécution d'un script PowerShell malveillant via Outlook sur PC-COMPTA-07",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "edr_events.jsonl",
+            "ligne": 2,
+            "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+          }
+        ],
+        "horodatage_source": "2024-11-16T08:42:10Z",
+        "utc": "2024-11-16T08:42:10Z"
+      }
+    ]
+  },
+  {
+    "id": "T1082",
+    "nom": "System Information Discovery",
+    "description": "An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture. Adversaries may use this information to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions. This behavior is distinct from [Local Storage Discovery](https://attack.mitre.org/techniques/T1680) which is an adversary's discovery of local drive, disks and/or volumes.\n\nTools such as [Systeminfo](https://attack.mitre.org/software/S0096) can be used to gather detailed system information. If running with privileged access, a breakdown of system data can be gathered through the <code>systemsetup</code> configuration tool on macOS. Adversaries may leverage a [Network Device CLI](https://attack.mitre.org/techniques/T1059/008) on network devices to gather detailed system information (e.g. <code>show version</code>).(Citation: US-CERT-TA18-106A) On ESXi servers, threat actors may gather system information from various esxcli utilities, such as `system hostname get` and `system version get`.(Citation: Crowdstrike Hypervisor Jackpotting Pt 2 2021)(Citation: Varonis)\n\nInfrastructure as a Service (IaaS) cloud providers such as AWS, GCP, and Azure allow access to instance and virtual machine information via APIs. Successful authenticated API calls can return data such as the operating system platform and status of a particular instance or the model view of a virtual machine.(Citation: Amazon Describe Instance)(Citation: Google Instances Resource)(Citation: Microsoft Virutal Machine API)\n\n[System Information Discovery](https://attack.mitre.org/techniques/T1082) combined with information gathered from other forms of discovery and reconnaissance can drive payload development and concealment.(Citation: OSX.FairyTale)(Citation: 20 macOS Common Tools and Techniques) ",
+    "plateformes": [
+      "ESXi",
+      "IaaS",
+      "Linux",
+      "macOS",
+      "Network Devices",
+      "Windows"
+    ],
+    "tactiques": [
+      "discovery"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1082",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C8"
+    ],
+    "justification": "Collecte d'informations système (Antivirus, BIOS) via WMI pour reconnaissance de l'environnement.",
+    "constats": [
+      {
+        "id": "C8",
+        "description": "Collecte d'informations système (Antivirus, BIOS) via WMI",
+        "statut": "observe",
+        "preuves": [
+          {
+            "fichier": "edr_events.jsonl",
+            "ligne": 3,
+            "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+          },
+          {
+            "fichier": "edr_events.jsonl",
+            "ligne": 4,
+            "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+          }
+        ],
+        "horodatage_source": "2024-11-16T08:42:11Z",
+        "utc": "2024-11-16T08:42:11Z"
+      }
+    ]
+  },
+  {
+    "id": "T1071.004",
+    "nom": "DNS",
+    "description": "Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \n\nThe DNS protocol serves an administrative function in computer networking and thus may be very common in environments. DNS traffic may also be allowed even before network authentication is completed. DNS packets contain many fields and headers in which data can be concealed. Often known as DNS tunneling, adversaries may abuse DNS to communicate with systems under their control within a victim network while also mimicking normal, expected traffic.(Citation: PAN DNS Tunneling)(Citation: Medium DnsTunneling)\n\nDNS beaconing may be used to send commands to remote systems via DNS queries. A DNS beacon is created by tunneling DNS traffic (i.e. [Protocol Tunneling](https://attack.mitre.org/techniques/T1572)). The commands may be embedded into different DNS records, for example, TXT or A records.(Citation: OilRig Uses Updated BONDUPDATER to Target Middle Eastern Government) DNS beacons may be difficult to detect because the beacons infrequently communicate with infected devices.(Citation: DNS Beacons) Infrequent communication conceals the malicious DNS traffic with normal DNS traffic. ",
+    "plateformes": [
+      "ESXi",
+      "Linux",
+      "macOS",
+      "Network Devices",
+      "Windows"
+    ],
+    "tactiques": [
+      "command-and-control"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1071/004",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C9"
+    ],
+    "justification": "Tentative de résolution DNS vers un domaine malveillant, typique d'une communication C2 via DNS.",
+    "constats": [
+      {
+        "id": "C9",
+        "description": "Tentative de résolution DNS vers un domaine malveillant (malicious-domain.ru) - NXDOMAIN",
+        "statut": "tentative_bloquee",
+        "preuves": [
+          {
+            "fichier": "edr_events.jsonl",
+            "ligne": 5,
+            "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+          }
+        ],
+        "horodatage_source": "2024-11-16T08:42:12Z",
+        "utc": "2024-11-16T08:42:12Z"
+      }
+    ]
+  },
+  {
+    "id": "T1685",
+    "nom": "Disable or Modify Tools",
+    "description": "Adversaries may disable, degrade, or tamper with security tools or applications (e.g., endpoint detection and response (EDR) tools, intrusion detection systems (IDS), antivirus, logging agents, sensors, etc.) to impair or reduce visibility of defensive capabilities. This may include stopping specific services, killing processes, modifying or deleting tool configuration files and Registry keys, or preventing tools from updating. This may also include impairing defenses more broadly by disrupting preventative, detection, and response mechanisms across host, network, and cloud environments.(Citation: SCADAfence_ransomware) \n\nIn addition to directly targeting tools, adversaries may block or manipulate indicators and telemetry used for detection. This includes maliciously disabling or redirecting sensors such as Event Tracing for Windows (ETW), modifying event log configurations (e.g., redirecting Security logs), or interfering with logging pipelines and forwarding mechanisms (e.g., SIEM ingestion).(Citation: Microsoft Lamin Sept 2017)(Citation: ETW Palantir)\n\nMore advanced techniques include leveraging legitimate drivers or debugging mechanisms to render tools non-functional, bypassing anti-tampering protections, and targeting specific defenses such as Sysmon or cloud monitoring agents. Adversaries may also disrupt broader defensive operations, including update mechanisms, logging infrastructure (e.g., syslog), or event aggregation, further degrading an organization’s ability to detect and respond to malicious activity.(Citation: Cocomazzi FIN7 Reboot)",
+    "plateformes": [
+      "Containers",
+      "ESXi",
+      "IaaS",
+      "Linux",
+      "macOS",
+      "Network Devices",
+      "Windows"
+    ],
+    "tactiques": [
+      "defense-impairment"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1685",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C11"
+    ],
+    "justification": "Présence d'une capacité de contournement de l'AMSI (Antimalware Scan Interface) pour échapper à la détection.",
+    "constats": [
+      {
+        "id": "C11",
+        "description": "Capacité de contournement AMSI présente dans le script",
+        "statut": "present_dans_script",
+        "preuves": [
+          {
+            "fichier": "facture_2024-11.ps1.txt",
+            "ligne": 17,
+            "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+          }
+        ],
+        "horodatage_source": null,
+        "utc": null
+      }
+    ]
+  },
+  {
+    "id": "T1053.005",
+    "nom": "Scheduled Task",
+    "description": "Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code. There are multiple ways to access the Task Scheduler in Windows. The [schtasks](https://attack.mitre.org/software/S0111) utility can be run directly on the command line, or the Task Scheduler can be opened through the GUI within the Administrator Tools section of the Control Panel.(Citation: Stack Overflow) In some cases, adversaries have used a .NET wrapper for the Windows Task Scheduler, and alternatively, adversaries have used the Windows netapi32 library and [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) (WMI) to create a scheduled task. Adversaries may also utilize the Powershell Cmdlet `Invoke-CimMethod`, which leverages WMI class `PS_ScheduledTask` to create a scheduled task via an XML path.(Citation: Red Canary - Atomic Red Team)\n\nAn adversary may use Windows Task Scheduler to execute programs at system startup or on a scheduled basis for persistence. The Windows Task Scheduler can also be abused to conduct remote Execution as part of Lateral Movement and/or to run a process under the context of a specified account (such as SYSTEM). Similar to [System Binary Proxy Execution](https://attack.mitre.org/techniques/T1218), adversaries have also abused the Windows Task Scheduler to potentially mask one-time execution under signed/trusted system processes.(Citation: ProofPoint Serpent)\n\nAdversaries may also create \"hidden\" scheduled tasks (i.e. [Hide Artifacts](https://attack.mitre.org/techniques/T1564)) that may not be visible to defender tools and manual queries used to enumerate tasks. Specifically, an adversary may hide a task from `schtasks /query` and the Task Scheduler by deleting the associated Security Descriptor (SD) registry value (where deletion of this value must be completed using SYSTEM permissions).(Citation: SigmaHQ)(Citation: Tarrask scheduled task) Adversaries may also employ alternate methods to hide tasks, such as altering the metadata (e.g., `Index` value) within associated registry keys.(Citation: Defending Against Scheduled Task Attacks in Windows Environments) ",
+    "plateformes": [
+      "Windows"
+    ],
+    "tactiques": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1053/005",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C12"
+    ],
+    "justification": "Capacité de persistance via la création de Tâches Planifiées.",
+    "constats": [
+      {
+        "id": "C12",
+        "description": "Capacité de persistance via Tâches Planifiées et Registre présente dans le script",
+        "statut": "present_dans_script",
+        "preuves": [
+          {
+            "fichier": "facture_2024-11.ps1.txt",
+            "ligne": 54,
+            "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+          },
+          {
+            "fichier": "facture_2024-11.ps1.txt",
+            "ligne": 72,
+            "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+          }
+        ],
+        "horodatage_source": null,
+        "utc": null
+      }
+    ]
+  },
+  {
+    "id": "T1112",
+    "nom": "Modify Registry",
+    "description": "Adversaries may interact with the Windows Registry as part of a variety of other techniques to aid in defense evasion, persistence, and execution.\n\nAccess to specific areas of the Registry depends on account permissions, with some keys requiring administrator-level access. The built-in Windows command-line utility [Reg](https://attack.mitre.org/software/S0075) may be used for local or remote Registry modification.(Citation: Microsoft Reg) Other tools, such as remote access tools, may also contain functionality to interact with the Registry through the Windows API.\n\nThe Registry may be modified in order to hide configuration information or malicious payloads via [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027).(Citation: Unit42 BabyShark Feb 2019)(Citation: Avaddon Ransomware 2021)(Citation: Microsoft BlackCat Jun 2022)(Citation: CISA Russian Gov Critical Infra 2018) The Registry may also be modified to impair defenses, such as by enabling macros for all Microsoft Office products, allowing privilege escalation without alerting the user, increasing the maximum number of allowed outbound requests, and/or modifying systems to store plaintext credentials in memory.(Citation: CISA LockBit 2023)(Citation: Unit42 BabyShark Feb 2019)\n\nThe Registry of a remote system may be modified to aid in execution of files as part of lateral movement. It requires the remote Registry service to be running on the target system.(Citation: Microsoft Remote) Often [Valid Accounts](https://attack.mitre.org/techniques/T1078) are required, along with access to the remote system's [SMB/Windows Admin Shares](https://attack.mitre.org/techniques/T1021/002) for RPC communication.\n\nFinally, Registry modifications may also include actions to hide keys, such as prepending key names with a null character, which will cause an error and/or be ignored when read via [Reg](https://attack.mitre.org/software/S0075) or other utilities using the Win32 API.(Citation: Microsoft Reghide NOV 2006) Adversaries may abuse these pseudo-hidden keys to conceal payloads/commands used to maintain persistence.(Citation: TrendMicro POWELIKS AUG 2014)(Citation: SpectorOps Hiding Reg Jul 2017)",
+    "plateformes": [
+      "Windows"
+    ],
+    "tactiques": [
+      "defense-impairment",
+      "persistence"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1112",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C12"
+    ],
+    "justification": "Capacité de persistance via la modification du Registre.",
+    "constats": [
+      {
+        "id": "C12",
+        "description": "Capacité de persistance via Tâches Planifiées et Registre présente dans le script",
+        "statut": "present_dans_script",
+        "preuves": [
+          {
+            "fichier": "facture_2024-11.ps1.txt",
+            "ligne": 54,
+            "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+          },
+          {
+            "fichier": "facture_2024-11.ps1.txt",
+            "ligne": 72,
+            "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+          }
+        ],
+        "horodatage_source": null,
+        "utc": null
+      }
+    ]
+  },
+  {
+    "id": "T1056.001",
+    "nom": "Keylogging",
+    "description": "Adversaries may log user keystrokes to intercept credentials as the user types them. Keylogging is likely to be used to acquire credentials for new access opportunities when [OS Credential Dumping](https://attack.mitre.org/techniques/T1003) efforts are not effective, and may require an adversary to intercept keystrokes on a system for a substantial period of time before credentials can be successfully captured. In order to increase the likelihood of capturing credentials quickly, an adversary may also perform actions such as clearing browser cookies to force users to reauthenticate to systems.(Citation: Talos Kimsuky Nov 2021)\n\nKeylogging is the most prevalent type of input capture, with many different ways of intercepting keystrokes.(Citation: Adventures of a Keystroke) Some methods include:\n\n* Hooking API callbacks used for processing keystrokes. Unlike [Credential API Hooking](https://attack.mitre.org/techniques/T1056/004), this focuses solely on API functions intended for processing keystroke data.\n* Reading raw keystroke data from the hardware buffer.\n* Windows Registry modifications.\n* Custom drivers.\n* [Modify System Image](https://attack.mitre.org/techniques/T1601) may provide adversaries with hooks into the operating system of network devices to read raw keystrokes for login sessions.(Citation: Cisco Blog Legacy Device Attacks) ",
+    "plateformes": [
+      "Linux",
+      "macOS",
+      "Network Devices",
+      "Windows"
+    ],
+    "tactiques": [
+      "collection",
+      "credential-access"
+    ],
+    "url": "https://attack.mitre.org/techniques/T1056/001",
+    "revoquee": false,
+    "obsolete": false,
+    "version_attack": "20.1",
+    "constat_ids": [
+      "C13"
+    ],
+    "justification": "Capacité de keylogging utilisant les API de user32.dll pour capturer les frappes clavier.",
+    "constats": [
+      {
+        "id": "C13",
+        "description": "Capacité de keylogging via API user32.dll présente dans le script",
+        "statut": "present_dans_script",
+        "preuves": [
+          {
+            "fichier": "facture_2024-11.ps1.txt",
+            "ligne": 117,
+            "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+          }
+        ],
+        "horodatage_source": null,
+        "utc": null
+      }
+    ]
+  }
+]

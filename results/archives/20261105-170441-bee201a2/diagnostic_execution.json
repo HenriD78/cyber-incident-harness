@@ -1,0 +1,151 @@
+{
+  "statut": "incomplet",
+  "thread_id": "td3-v3-558c9ce7-f8ab-4b63-ab63-54f248ea8b61",
+  "modele": "gemma4:31b-cloud",
+  "duree_secondes": 27.45,
+  "appels_llm": 27,
+  "budget_llm": 200,
+  "limite_repetition": 4,
+  "derniers_outils": [
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\"}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"offset\": 101}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"offset\": 100}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"limite\": 106, \"offset\": 100}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"15/Nov/2024:22:18:15 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"15/Nov/2024:22:18:22 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"15/Nov/2024:22:18:30 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"15/Nov/2024:22:22:15 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"15/Nov/2024:22:22:30 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"15/Nov/2024:23:20:06 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"15/Nov/2024:23:21:45 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"16/Nov/2024:02:00:11 +0100\"}"
+    },
+    {
+      "outil": "to_utc",
+      "arguments": "{\"timestamp\": \"16/Nov/2024:02:00:45 +0100\"}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"offset\": 107}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"limite\": 100, \"offset\": 106}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"limite\": 100, \"offset\": 200}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"limite\": 100, \"offset\": 106}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"limite\": 100, \"offset\": 106}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"limite\": 100, \"offset\": 106}"
+    },
+    {
+      "outil": "read_evidence",
+      "arguments": "{\"fichier\": \"facture_2024-11.ps1.txt\", \"limite\": 100, \"offset\": 106}"
+    }
+  ],
+  "raison_arret": null,
+  "preuves_intactes": true,
+  "sha256_avant": {
+    "app.log": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640",
+    "edr_events.jsonl": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e",
+    "facture_2024-11.ps1.txt": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40",
+    "ticket_INC-2026-0417.md": "bea9d6b0527f383a478611e5b4f979c6aba91a9af4bfcfefda66bd2178dc81bb",
+    "web_access.log": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+  },
+  "phases": {
+    "preuves": {
+      "statut": "echec",
+      "raisons": [
+        "Limite atteinte : Boucle détectée : read_evidence appelé 4 fois de suite avec les mêmes arguments ; analyse incomplète."
+      ],
+      "invocations": 2
+    },
+    "ioc": {
+      "statut": "bloquee",
+      "raisons": [
+        "Limite d'exécution atteinte ; budget réservé à la clôture"
+      ],
+      "invocations": 0
+    },
+    "mitre": {
+      "statut": "bloquee",
+      "raisons": [
+        "Limite d'exécution atteinte ; budget réservé à la clôture"
+      ],
+      "invocations": 0
+    },
+    "regles": {
+      "statut": "bloquee",
+      "raisons": [
+        "Limite d'exécution atteinte ; budget réservé à la clôture"
+      ],
+      "invocations": 0
+    },
+    "confinement": {
+      "statut": "bloquee",
+      "raisons": [
+        "Limite d'exécution atteinte ; budget réservé à la clôture"
+      ],
+      "invocations": 0
+    },
+    "protocole": {
+      "statut": "ignoree",
+      "raisons": [
+        "Aucun accord humain : protocole interdit"
+      ],
+      "invocations": 0
+    },
+    "rapport": {
+      "statut": "secours",
+      "raisons": [
+        "Analyse vérifiée indisponible : rapport assemblé par l'hôte sans synthèse LLM"
+      ],
+      "invocations": 0
+    }
+  }
+}

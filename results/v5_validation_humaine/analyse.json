@@ -1,0 +1,214 @@
+{
+  "constats": [
+    {
+      "id": "C1",
+      "description": "Scan de répertoires et fichiers sensibles (admin, .git, .env) depuis l'IP 203.0.113.42",
+      "statut": "observe",
+      "preuves": [
+        {
+          "fichier": "web_access.log",
+          "ligne": 8,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        },
+        {
+          "fichier": "web_access.log",
+          "ligne": 12,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        }
+      ],
+      "horodatage_source": "15/Nov/2024:22:15:01 +0100",
+      "utc": "2024-11-15T21:15:01Z"
+    },
+    {
+      "id": "C2",
+      "description": "Tentatives d'injection SQL sur le paramètre 'q' de /search et sur /api/users/",
+      "statut": "observe",
+      "preuves": [
+        {
+          "fichier": "web_access.log",
+          "ligne": 19,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        },
+        {
+          "fichier": "app.log",
+          "ligne": 1,
+          "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+        }
+      ],
+      "horodatage_source": "15/Nov/2024:22:18:15 +0100",
+      "utc": "2024-11-15T21:18:15Z"
+    },
+    {
+      "id": "C3",
+      "description": "Extraction réussie de données de la table 'users' via injection SQL",
+      "statut": "observe",
+      "preuves": [
+        {
+          "fichier": "web_access.log",
+          "ligne": 25,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        },
+        {
+          "fichier": "app.log",
+          "ligne": 4,
+          "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+        }
+      ],
+      "horodatage_source": "15/Nov/2024:22:22:15 +0100",
+      "utc": "2024-11-15T21:22:15Z"
+    },
+    {
+      "id": "C4",
+      "description": "Accès réussi au compte 'admin' après plusieurs tentatives infructueuses",
+      "statut": "observe",
+      "preuves": [
+        {
+          "fichier": "web_access.log",
+          "ligne": 43,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        },
+        {
+          "fichier": "app.log",
+          "ligne": 7,
+          "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+        }
+      ],
+      "horodatage_source": "15/Nov/2024:23:20:06 +0100",
+      "utc": "2024-11-15T22:20:06Z"
+    },
+    {
+      "id": "C5",
+      "description": "Exfiltration de données massives (customers, backups) via l'interface admin",
+      "statut": "observe",
+      "preuves": [
+        {
+          "fichier": "web_access.log",
+          "ligne": 47,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        },
+        {
+          "fichier": "app.log",
+          "ligne": 8,
+          "sha256": "27f243fb2b7a71d9c96b5934e6ba7f2c64b8d2c6195a00c0fe0122ca6cf3e640"
+        }
+      ],
+      "horodatage_source": "15/Nov/2024:23:21:45 +0100",
+      "utc": "2024-11-15T22:21:45Z"
+    },
+    {
+      "id": "C6",
+      "description": "Exécution d'un script PowerShell malveillant via Outlook sur PC-COMPTA-07",
+      "statut": "observe",
+      "preuves": [
+        {
+          "fichier": "edr_events.jsonl",
+          "ligne": 2,
+          "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+        }
+      ],
+      "horodatage_source": "2024-11-16T08:42:10Z",
+      "utc": "2024-11-16T08:42:10Z"
+    },
+    {
+      "id": "C7",
+      "description": "Tentative de connexion réseau vers 192.168.1.100:8080 bloquée par le proxy",
+      "statut": "tentative_bloquee",
+      "preuves": [
+        {
+          "fichier": "edr_events.jsonl",
+          "ligne": 6,
+          "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+        }
+      ],
+      "horodatage_source": "2024-11-16T08:42:13Z",
+      "utc": "2024-11-16T08:42:13Z"
+    },
+    {
+      "id": "C8",
+      "description": "Capacité de bypass AMSI présente dans le script facture_2024-11.ps1",
+      "statut": "present_dans_script",
+      "preuves": [
+        {
+          "fichier": "facture_2024-11.ps1.txt",
+          "ligne": 18,
+          "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+        }
+      ],
+      "horodatage_source": null,
+      "utc": null
+    },
+    {
+      "id": "C9",
+      "description": "Capacité de persistance via Tâches Planifiées et Registre présente dans le script",
+      "statut": "present_dans_script",
+      "preuves": [
+        {
+          "fichier": "facture_2024-11.ps1.txt",
+          "ligne": 64,
+          "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+        },
+        {
+          "fichier": "facture_2024-11.ps1.txt",
+          "ligne": 80,
+          "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+        }
+      ],
+      "horodatage_source": null,
+      "utc": null
+    },
+    {
+      "id": "C10",
+      "description": "Capacité de keylogging et exfiltration de données système présente dans le script",
+      "statut": "present_dans_script",
+      "preuves": [
+        {
+          "fichier": "facture_2024-11.ps1.txt",
+          "ligne": 117,
+          "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+        },
+        {
+          "fichier": "facture_2024-11.ps1.txt",
+          "ligne": 144,
+          "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+        }
+      ],
+      "horodatage_source": null,
+      "utc": null
+    }
+  ],
+  "qualifications": {
+    "alerte_web": {
+      "conclusion": "Compromission réussie du serveur web via injection SQL, menant à l'usurpation du compte admin et l'exfiltration de bases de données clients.",
+      "constat_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ]
+    },
+    "alerte_poste": {
+      "conclusion": "Infection d'un poste de travail par un script PowerShell malveillant via phishing, avec tentatives de C2 bloquées.",
+      "constat_ids": [
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10"
+      ]
+    }
+  },
+  "lien_alertes": "Aucun lien technique prouvé entre l'attaque web (IP 203.0.113.42) et l'infection du poste (C2 192.168.1.100). Les attaques sont distinctes temporellement et techniquement.",
+  "lien_prouve": false,
+  "preuves_lien": [],
+  "injections": [
+    {
+      "fichier": "web_access.log",
+      "ligne": 7,
+      "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+    }
+  ],
+  "limites": [
+    "Le script PowerShell a été analysé en version désarmée, certaines capacités n'ont pas été observées en conditions réelles sur le poste."
+  ]
+}

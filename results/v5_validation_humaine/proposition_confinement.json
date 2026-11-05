@@ -1,0 +1,64 @@
+{
+  "synthese": "L'incident présente un double vecteur d'attaque : une intrusion externe via le serveur web (IP 203.0.113.42) ayant mené à une exfiltration de données via le compte admin, et une compromission interne sur le poste PC-COMPTA-07 via un script PowerShell malveillant. La stratégie de confinement vise à couper les accès de l'attaquant externe, neutraliser le compte compromis et isoler la machine infectée pour stopper l'exfiltration et la persistance.",
+  "actions": [
+    {
+      "id": "A1",
+      "action": "Blocage de l'adresse IP 203.0.113.42 au niveau du pare-feu périmétrique.",
+      "cible": "203.0.113.42",
+      "constat_ids": [
+        "C1",
+        "C2"
+      ],
+      "preuves": [
+        {
+          "fichier": "web_access.log",
+          "ligne": 8,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        }
+      ],
+      "justification": "L'IP 203.0.113.42 est responsable de scans de fichiers sensibles et de tentatives d'injection SQL sur le serveur web.",
+      "impact_attendu": "Blocage des tentatives de scan et d'injection SQL provenant de cette source.",
+      "risques": "Faible, sauf si l'IP appartient à un service légitime non identifié."
+    },
+    {
+      "id": "A2",
+      "action": "Désactivation et réinitialisation du mot de passe du compte administrateur 'admin' sur le serveur web.",
+      "cible": "admin",
+      "constat_ids": [
+        "C4",
+        "C5"
+      ],
+      "preuves": [
+        {
+          "fichier": "web_access.log",
+          "ligne": 43,
+          "sha256": "cc15f170258dc57cc50ebddec9aa3911dfc93f69258c53c20ee47f9d00b18810"
+        }
+      ],
+      "justification": "Le compte 'admin' a été compromis et utilisé pour exfiltrer des données massives (customers, backups).",
+      "impact_attendu": "Interruption immédiate de l'accès non autorisé et arrêt de l'exfiltration de données via l'interface admin.",
+      "risques": "Interruption temporaire de l'administration légitime du serveur."
+    },
+    {
+      "id": "A3",
+      "action": "Isolation réseau du poste de travail PC-COMPTA-07.",
+      "cible": "facture_2024-11.ps1",
+      "constat_ids": [
+        "C6",
+        "C8",
+        "C9",
+        "C10"
+      ],
+      "preuves": [
+        {
+          "fichier": "edr_events.jsonl",
+          "ligne": 2,
+          "sha256": "c42e6d8ecdc79c99f09052137faad313fd26f84766519de98ddff33a07fbb38e"
+        }
+      ],
+      "justification": "Le poste PC-COMPTA-07 a exécuté un script PowerShell malveillant possédant des capacités de bypass AMSI, de persistance et de keylogging.",
+      "impact_attendu": "Arrêt de l'exécution du script malveillant, blocage de la persistance et de l'exfiltration de données système.",
+      "risques": "Interruption de l'activité métier de l'utilisateur du poste PC-COMPTA-07."
+    }
+  ]
+}

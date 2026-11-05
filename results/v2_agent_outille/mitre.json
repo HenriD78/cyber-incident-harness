@@ -1,0 +1,28 @@
+IOCs:
+- 203.0.113.42 (IP, references: web_access.log:7-51, app.log:7-22)
+- 192.168.1.100 (IP, references: edr_events.jsonl:6, facture_2024-11.ps1.txt:144,22)
+- 192.168.1.101 (IP, references: facture_2024-11.ps1.txt:23)
+- malicious-domain.ru (domain, references: edr_events.jsonl:5, facture_2024-11.ps1.txt:24)
+- 064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40 (hash, references: edr_events.jsonl:1)
+
+MITRE Techniques:
+- T1059.001: PowerShell (Execution, not revoked)
+- T1059.005: Command Shell (Execution, not revoked)
+- T1071.001: Web Protocols (CommandAndControl, not revoked)
+- T1071.004: Application Layer Protocol (CommandAndControl, not revoked)
+- T1048.003: Exfiltration Over Web Services (Exfiltration, not revoked)
+- T1053.005: Scheduled Task (Persistence, not revoked)
+- T1059: Command and Scripting Interpreter (Execution, not revoked)
+- T1078.001: Valid Accounts (CredentialAccess, not revoked)
+- T1071: Application Layer Protocol (CommandAndControl, not revoked)
+
+Observed Behaviors:
+- SQL injection attempts from 203.0.113.42 against web-01
+- PowerShell execution with Bypass and Hidden window from PC-COMPTA-07
+- DNS query to malicious-domain.ru (NXDOMAIN result)
+- Network connect to 192.168.1.100:8080 (blocked by proxy)
+- WMI queries for AntivirusProduct and Win32_BIOS enumeration
+- Scheduled task creation for persistence (WindowsUpdateTask)
+- Registry Run key modification for persistence
+- Bulk data export (customers_full.csv 1.5MB) from web-01
+- Backup file download (db_dump_2024.sql.gz 4.5MB) from web-01

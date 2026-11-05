@@ -1,0 +1,33 @@
+{
+  "thread_id": "td3-v3-558c9ce7-f8ab-4b63-ab63-54f248ea8b61",
+  "read_evidence_calls": [
+    {
+      "fichier": "ticket_INC-2026-0417.md"
+    },
+    {
+      "fichier": "web_access.log"
+    },
+    {
+      "fichier": "app.log"
+    },
+    {
+      "fichier": "edr_events.jsonl"
+    },
+    {
+      "fichier": "facture_2024-11.ps1.txt"
+    },
+    {
+      "fichier": "facture_2024-11.ps1.txt",
+      "offset": 101
+    },
+    {
+      "fichier": "facture_2024-11.ps1.txt",
+      "offset": 100
+    },
+    {
+      "fichier": "facture_2024-11.ps1.txt",
+      "offset": 100,
+      "limite": 106
+    }
+  ]
+}

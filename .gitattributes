@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# Les octets historiques et les preuves doivent conserver leurs empreintes.
+results/** -text
+examples/inc_2026_0417/incident/** -text
+examples/inc_2026_0417/benign_samples/** -text

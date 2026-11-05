@@ -1,0 +1,72 @@
+{
+  "proposition_sha256": "8e7087ea614485e9c4396e9bd5e0287991c5b74eaefbb8ec3773cbeb2113635c",
+  "actions": [
+    {
+      "action_id": "A1",
+      "cible": "203.0.113.42",
+      "responsable": "Équipe Réseau/Sécurité",
+      "prerequis": [
+        "Accès administrateur au pare-feu périmétrique."
+      ],
+      "etapes": [
+        "Accéder à l'interface d'administration du pare-feu périmétrique.",
+        "Créer une règle de blocage (Deny) pour tout trafic entrant provenant de l'adresse IP 203.0.113.42.",
+        "Appliquer la configuration et vérifier que la règle est active."
+      ],
+      "verifications": [
+        "Tenter une connexion depuis une source externe simulée (si possible) ou vérifier les logs du pare-feu pour confirmer le rejet des paquets de l'IP 203.0.113.42."
+      ],
+      "criteres_arret": [
+        "Confirmation du blocage effectif de l'IP sur le pare-feu périmétrique."
+      ],
+      "retour_arriere": [
+        "Supprimer la règle de blocage de l'IP 203.0.113.42."
+      ]
+    },
+    {
+      "action_id": "A2",
+      "cible": "admin",
+      "responsable": "Équipe Administration Système",
+      "prerequis": [
+        "Accès administrateur au serveur web."
+      ],
+      "etapes": [
+        "Se connecter au serveur web avec un compte administrateur légitime.",
+        "Accéder à la gestion des utilisateurs.",
+        "Désactiver le compte 'admin'.",
+        "Réinitialiser le mot de passe du compte 'admin' avec une valeur forte et aléatoire."
+      ],
+      "verifications": [
+        "Tenter de se connecter avec les anciens identifiants du compte 'admin' pour confirmer l'échec de l'accès."
+      ],
+      "criteres_arret": [
+        "Confirmation de la désactivation du compte et du changement de mot de passe."
+      ],
+      "retour_arriere": [
+        "Réactiver le compte 'admin' et restaurer l'ancien mot de passe (si connu et sécurisé)."
+      ]
+    },
+    {
+      "action_id": "A3",
+      "cible": "facture_2024-11.ps1",
+      "responsable": "Équipe Sécurité/IT Support",
+      "prerequis": [
+        "Accès administrateur à la console EDR ou au commutateur réseau."
+      ],
+      "etapes": [
+        "Accéder à la console de gestion de l'EDR ou du commutateur réseau.",
+        "Identifier le poste PC-COMPTA-07.",
+        "Activer l'isolation réseau du poste (Network Isolation) pour bloquer tout trafic entrant et sortant, sauf vers la console de gestion."
+      ],
+      "verifications": [
+        "Vérifier dans la console EDR que le statut du poste est 'Isolé'. Tenter un ping depuis un autre poste du réseau vers PC-COMPTA-07 pour confirmer l'absence de réponse."
+      ],
+      "criteres_arret": [
+        "Confirmation de l'isolation réseau du poste PC-COMPTA-07."
+      ],
+      "retour_arriere": [
+        "Désactiver l'isolation réseau du poste PC-COMPTA-07."
+      ]
+    }
+  ]
+}

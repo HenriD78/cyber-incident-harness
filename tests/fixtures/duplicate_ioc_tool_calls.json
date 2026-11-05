@@ -1,0 +1,55 @@
+{
+  "source_trace_id": "01a1a6fd-127c-7452-ac20-ab15d0412f12",
+  "source_llm_run_id": "01a1a6fd-9f93-7831-85c7-50e871ed070e",
+  "message_id": "lc_run--01a1a6fd-9f93-7831-85c7-50e871ed070e-0",
+  "tool_calls": [
+    {
+      "args": {
+        "value": "203.0.113.42"
+      },
+      "id": "515bbca2-345b-4de1-80a2-56bdb8184645",
+      "name": "verify_ioc",
+      "type": "tool_call"
+    },
+    {
+      "args": {
+        "value": "203.0.113.42"
+      },
+      "id": "c091ebe0-fc79-416a-8de1-a8a19abf00ee",
+      "name": "verify_ioc",
+      "type": "tool_call"
+    },
+    {
+      "args": {
+        "value": "203.0.113.42"
+      },
+      "id": "9912f398-bca8-4518-a740-aea1b493b797",
+      "name": "verify_ioc",
+      "type": "tool_call"
+    },
+    {
+      "args": {
+        "value": "203.0.113.42"
+      },
+      "id": "03978307-88c3-4c16-8474-194a2b36cb56",
+      "name": "verify_ioc",
+      "type": "tool_call"
+    },
+    {
+      "args": {
+        "value": "203.0.113.42"
+      },
+      "id": "6b7036d5-1860-48fd-a361-b936f19fff5a",
+      "name": "verify_ioc",
+      "type": "tool_call"
+    },
+    {
+      "args": {
+        "value": "203.0.113.42"
+      },
+      "id": "ad0101fa-02ae-4a2e-96ec-b04f18e597d0",
+      "name": "verify_ioc",
+      "type": "tool_call"
+    }
+  ]
+}

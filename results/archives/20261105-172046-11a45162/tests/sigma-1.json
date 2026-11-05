@@ -1,0 +1,16 @@
+{
+  "valide": true,
+  "test_concluant": true,
+  "test_reussi": true,
+  "detections_sur_edr": [
+    "edr_events.jsonl:2 (process_create)"
+  ],
+  "regle_sha256": "572a47b1b4b471b02ded074460ddab2e662ea51ad5747e0987225a1f4e62792b",
+  "titre": "PowerShell Execution via Outlook",
+  "logsource": "SigmaLogSource(category='process_creation', product='windows', service=None, definition=None, source=None, custom_attributes=None)",
+  "corpus_sha256": "cb09edd06642a8324f9b4b404c78c26420a60f8f56742c9fc69afb5d46f948e5",
+  "faux_positifs": [],
+  "faux_negatifs": [],
+  "nb_negatifs": 4,
+  "tentative": 1
+}

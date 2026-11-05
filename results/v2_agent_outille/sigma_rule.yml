@@ -1,0 +1,13 @@
+title: PowerShell Bypass ExecutionPolicy with Hidden Window
+id: 550e8400-e29b-41d4-a716-446655440000
+status: test
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    EventID: 4104
+    CommandLine|contains: 'bypass'
+    CommandLine|contains: 'hidden'
+condition: selection
+level: high

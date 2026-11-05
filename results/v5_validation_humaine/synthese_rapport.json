@@ -1,0 +1,18 @@
+{
+  "resume": "L'incident combine deux attaques distinctes : une intrusion web réussie via injection SQL (IP 203.0.113.42) menant à l'usurpation du compte admin et l'exfiltration de données clients, et une infection du poste PC-COMPTA-07 par un script PowerShell malveillant via phishing. Le script présente des capacités de bypass AMSI, de persistance et de keylogging, bien que les connexions C2 aient été bloquées. Aucun lien technique n'a été prouvé entre ces deux vecteurs.",
+  "constat_ids": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10"
+  ],
+  "limites": [
+    "Le script PowerShell a été analysé en version désarmée, certaines capacités n'ont pas été observées en conditions réelles sur le poste."
+  ]
+}

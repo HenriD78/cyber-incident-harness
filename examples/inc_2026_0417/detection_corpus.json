@@ -1,0 +1,15 @@
+{
+  "yara": {
+    "malveillants": ["facture_2024-11.ps1.txt"],
+    "benins": ["inventaire_parc.ps1", "lancement_encode.ps1", "maj_agent.ps1", "nettoyage_temp.ps1", "rapport_disques.ps1", "sauvegarde_planifiee.ps1"]
+  },
+  "sigma": {
+    "positifs": [{"fichier": "edr_events.jsonl", "ligne": 2}],
+    "negatifs": [
+      {"event": "process_create", "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "parent_image": "C:\\Windows\\explorer.exe", "command_line": "powershell.exe -File inventaire_parc.ps1"},
+      {"event": "process_create", "image": "C:\\Windows\\System32\\cmd.exe", "parent_image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE", "command_line": "cmd.exe /c echo test"},
+      {"event": "process_create", "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "parent_image": "C:\\Windows\\explorer.exe", "command_line": "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File maj_agent.ps1"},
+      {"event": "process_create", "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "parent_image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE", "command_line": "powershell.exe -File rapport_disques.ps1"}
+    ]
+  }
+}

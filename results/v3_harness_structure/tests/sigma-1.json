@@ -1,0 +1,10 @@
+{
+  "valide": false,
+  "test_concluant": false,
+  "test_reussi": false,
+  "detections_sur_edr": [],
+  "regle_sha256": "7e60fc7f82f2ab25aa1a27de46efe3dfa3167c5f1e9cf516de7fce420b41413f",
+  "erreur": "SigmaIdentifierError: Sigma rule identifier must be an UUID",
+  "test": "test non concluant : SigmaIdentifierError: Sigma rule identifier must be an UUID",
+  "tentative": 1
+}

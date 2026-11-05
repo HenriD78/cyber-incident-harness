@@ -1,0 +1,25 @@
+title: PowerShell Execution via Outlook
+id: 4f2a1b3c-5d6e-7f8a-9b0c-1d2e3f4a5b6c
+status: experimental
+description: Detects PowerShell execution launched by Outlook with common evasion flags (Bypass, Hidden).
+logsource:
+    product: windows
+    category: process_creation
+detection:
+    selection:
+        ParentImage|endswith: '\OUTLOOK.EXE'
+        Image|endswith: '\powershell.exe'
+        CommandLine|contains: 
+            - '-ExecutionPolicy Bypass'
+            - '-WindowStyle Hidden'
+    condition: selection
+fields:
+    - Computer
+    - User
+    - CommandLine
+falsepositives:
+    - Legitimate Outlook add-ins or administrative scripts launched via email (rare).
+level: high
+tags:
+    - attack.execution
+    - attack.t1059.001

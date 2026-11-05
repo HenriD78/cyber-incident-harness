@@ -1,0 +1,41 @@
+{
+  "statut": "complet",
+  "erreurs": [],
+  "phases": {
+    "preuves": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 3
+    },
+    "ioc": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 3
+    },
+    "mitre": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "regles": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "confinement": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "protocole": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "rapport": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    }
+  }
+}

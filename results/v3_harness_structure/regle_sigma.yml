@@ -1,0 +1,26 @@
+title: PowerShell launched by Outlook with Bypass and Hidden
+id: 4f2a1b3c-5d6e-4f8a-9b0c-d1e2f3a4b5c6
+status: experimental
+description: Detects PowerShell execution initiated by Outlook.exe using ExecutionPolicy Bypass and WindowStyle Hidden, as observed in INC-2026-0417.
+logsource:
+    product: windows
+    category: process_creation
+detection:
+    selection:
+        ParentImage|endswith: '\OUTLOOK.EXE'
+        Image|endswith: '\powershell.exe'
+        CommandLine|contains: 'ExecutionPolicy Bypass'
+        CommandLine|contains: 'WindowStyle Hidden'
+    condition: selection
+fields:
+    - ComputerName
+    - User
+    - CommandLine
+    - ParentImage
+    - Image
+falsepositives:
+    - Legitimate administrative scripts launched via Outlook (rare)
+level: high
+tags:
+    - attack.execution
+    - attack.t1059.001

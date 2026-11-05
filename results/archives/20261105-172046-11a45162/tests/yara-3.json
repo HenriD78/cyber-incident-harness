@@ -1,0 +1,16 @@
+{
+  "compile": true,
+  "test_concluant": true,
+  "verdict": "À REVOIR",
+  "regle_sha256": "343e0d79903cb3393c512e4388f6a2eebba57651175b0c73920dca020492c98c",
+  "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+  "vrais_positifs": [
+    "facture_2024-11.ps1.txt"
+  ],
+  "faux_negatifs": [],
+  "faux_positifs": [
+    "sauvegarde_planifiee.ps1"
+  ],
+  "nb_scripts_legitimes_testes": 6,
+  "tentative": 3
+}

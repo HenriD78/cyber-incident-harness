@@ -1,0 +1,11 @@
+title: Test Sigma Rule
+status: test
+detection:
+  selection:
+    EventID: 4104
+    CommandLine|contains|lower: 'bypass'
+condition: selection
+level: high
+logsource:
+  product: windows
+  service: powershell

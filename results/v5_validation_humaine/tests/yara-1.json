@@ -1,0 +1,9 @@
+{
+  "compile": false,
+  "test_concluant": false,
+  "verdict": "À REVOIR",
+  "regle_sha256": "5a088a3e567fd0304ec203d6612b83afbb50fbbb475e46403a2d0c4983678b1b",
+  "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+  "erreur": "line 16: syntax error, unexpected '|'",
+  "tentative": 1
+}

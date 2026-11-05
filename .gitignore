@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+.env
+data/enterprise-attack.json
+
+# Environnements, caches et métadonnées de construction
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+.DS_Store
+
+# Données locales et traces des nouvelles exécutions
+artifacts/
+traces/
+.env.*
+!.env.example

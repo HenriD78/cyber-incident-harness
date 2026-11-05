@@ -1,0 +1,30 @@
+# IOCs extraits de l'incident INC-2026-0417
+
+## IP addresses
+- 203.0.113.42 (source des injections SQL sur web-01, scanneur Nmap)
+- 192.168.1.100 (cible de connexion réseau depuis PC-COMPTA-07, stage1.ps1)
+- 192.168.1.101 (cible beacon.exe dans le script)
+
+## Domains
+- malicious-domain.ru (DNS query NXDOMAIN depuis PC-COMPTA-07, payload.dll dans le script)
+
+## URLs
+- http://192.168.1.100/stage1.ps1
+- http://192.168.1.101/beacon.exe
+- http://malicious-domain.ru/payload.dll
+
+## File hashes
+- 064a9a9fe8a517182768cf13f407edc1bf6292ef0b9aa309d3db1cd753d66f40 (facture_2024-11.ps1)
+
+## File paths
+- C:\Users\m.durand\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\X7K2P9QZ\facture_2024-11.ps1
+
+## Accounts
+- CORP\m.durand (utilisateur du poste PC-COMPTA-07)
+
+## Techniques observées
+- PowerShell Bypass ExecutionPolicy
+- WMI queries (AntivirusProduct, Win32_BIOS)
+- DNS query vers domaine malveillant
+- Network connect vers IP interne
+- Persistence via tâches planifiées Registry Run

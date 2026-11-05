@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cyber-incident-harness"
+version = "0.1.0"
+description = "Harness d'analyse d'incident cyber avec preuves sourcées et validation humaine"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Henri DARGENT" },
+  { name = "Luka GENOT" },
+]
+dynamic = ["dependencies"]
+
+[project.optional-dependencies]
+dev = ["ruff==0.17.4"]
+
+[project.scripts]
+cyber-harness = "cyber_harness.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["results", "artifacts", "data"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+

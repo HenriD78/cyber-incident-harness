@@ -1,0 +1,209 @@
+{
+  "date_analyse": "2026-11-05",
+  "methode": "Revalidation statique des règles existantes ; fonctions d’évaluation chargées depuis tools.py sans lancer l’agent ni exécuter de script de l’incident.",
+  "versions": {
+    "pysigma": "1.5.1",
+    "yara-python": "4.5.4",
+    "PyYAML": "6.0.3"
+  },
+  "corpus_local": "detection_corpus.json : un positif et quatre négatifs Sigma ; un positif et six négatifs YARA.",
+  "limite": "Les contre-exemples ajoutés sont construits pour examiner la logique des règles. Ils ne mesurent pas un taux de faux positifs en production.",
+  "exemples_benins_yara": {
+    "documentation_amsi": "# Technical note: amsiInitFailed\n",
+    "documentation_keyboard": "# API documentation: GetAsyncKeyState\n",
+    "documentation_unicode": "Write-Host \"ToUnicode\"\n",
+    "variable_sandbox": "$sandboxIndicators = @(\"VMware\", \"VirtualBox\")\n",
+    "configuration_legitime": "$regKey = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\"\n$action = New-ScheduledTaskAction -Execute \"backup.exe\"\n",
+    "ip_interne_seule": "# Internal service address: 192.168.1.100\n"
+  },
+  "variantes_sigma": {
+    "parent_image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE",
+    "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "command_lines": {
+      "bypass_seul": "powershell.exe -ExecutionPolicy Bypass -File legitimate.ps1",
+      "hidden_seul": "powershell.exe -WindowStyle Hidden -File legitimate.ps1",
+      "deux_flags": "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File legitimate.ps1",
+      "aucun_flag": "powershell.exe -File legitimate.ps1"
+    }
+  },
+  "resultats": {
+    "results/v1_prototype": {
+      "sigma": {
+        "valide": false,
+        "erreur": "SigmaIdentifierError: Sigma rule identifier must be an UUID"
+      },
+      "yara": {
+        "compile": false,
+        "erreur": "line 1: syntax error, unexpected ':', expecting identifier"
+      }
+    },
+    "results/v2_agent_outille": {
+      "sigma": {
+        "valide": false,
+        "test_concluant": false,
+        "test_reussi": false,
+        "detections_sur_edr": [],
+        "regle_sha256": "9a678e4cfe0b0345a0c2aecc05faccf86f168d49517bc66803a15f2cc9ba330f",
+        "erreur": "SigmaConditionError: Sigma rule must contain at least one condition",
+        "test": "test non concluant : SigmaConditionError: Sigma rule must contain at least one condition"
+      },
+      "yara": {
+        "compile": true,
+        "test_concluant": true,
+        "verdict": "OK",
+        "regle_sha256": "1fb9643bd77a1875c46d483fd092ba0c23252885bd9a755869c535cd18f22d3a",
+        "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+        "vrais_positifs": [
+          "facture_2024-11.ps1.txt"
+        ],
+        "faux_negatifs": [],
+        "faux_positifs": [],
+        "nb_scripts_legitimes_testes": 6
+      },
+      "yara_extra_benins": {
+        "documentation_amsi": false,
+        "documentation_keyboard": false,
+        "documentation_unicode": false,
+        "variable_sandbox": false,
+        "configuration_legitime": false,
+        "ip_interne_seule": true
+      },
+      "yara_chaines_detectees": [
+        "$encoded_cmd",
+        "$ip_192_168_1_100",
+        "$temp_svchost"
+      ]
+    },
+    "results/v3_harness_structure": {
+      "sigma": {
+        "valide": true,
+        "test_concluant": true,
+        "test_reussi": true,
+        "detections_sur_edr": [
+          "edr_events.jsonl:2 (process_create)"
+        ],
+        "regle_sha256": "9f2a38d54fa7db1861f4d99cf37d8994db38db6377e360af2bdf84edd53b6cb5",
+        "titre": "PowerShell launched by Outlook with Bypass and Hidden",
+        "logsource": "SigmaLogSource(category='process_creation', product='windows', service=None, definition=None, source=None, custom_attributes=None)",
+        "corpus_sha256": "cb09edd06642a8324f9b4b404c78c26420a60f8f56742c9fc69afb5d46f948e5",
+        "faux_positifs": [],
+        "faux_negatifs": [],
+        "nb_negatifs": 4
+      },
+      "yara": {
+        "compile": false,
+        "test_concluant": false,
+        "verdict": "À REVOIR",
+        "regle_sha256": "c764cebdf80b697a9fbf62cefa8deb151fa1cfb0a94fcadddabb2f35efc031f4",
+        "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+        "erreur": "line 18: unreferenced string \"$task_trigger\""
+      },
+      "sigma_variantes_flags": {
+        "bypass_seul": false,
+        "hidden_seul": true,
+        "deux_flags": true,
+        "aucun_flag": false
+      }
+    },
+    "results/v4_validation_detection": {
+      "sigma": {
+        "valide": true,
+        "test_concluant": true,
+        "test_reussi": true,
+        "detections_sur_edr": [
+          "edr_events.jsonl:2 (process_create)"
+        ],
+        "regle_sha256": "c5821b24bd2c5472d25abfdc228e3bbba9d558bf85113b157fa43d2698c0d153",
+        "titre": "PowerShell Execution via Outlook",
+        "logsource": "SigmaLogSource(category='process_creation', product='windows', service=None, definition=None, source=None, custom_attributes=None)",
+        "corpus_sha256": "cb09edd06642a8324f9b4b404c78c26420a60f8f56742c9fc69afb5d46f948e5",
+        "faux_positifs": [],
+        "faux_negatifs": [],
+        "nb_negatifs": 4
+      },
+      "yara": {
+        "compile": true,
+        "test_concluant": true,
+        "verdict": "OK",
+        "regle_sha256": "23dbbd042759ecc77043ad35729bdc688f353684ae393efb7c8ecd4277f17215",
+        "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+        "vrais_positifs": [
+          "facture_2024-11.ps1.txt"
+        ],
+        "faux_negatifs": [],
+        "faux_positifs": [],
+        "nb_scripts_legitimes_testes": 6
+      },
+      "yara_extra_benins": {
+        "documentation_amsi": false,
+        "documentation_keyboard": false,
+        "documentation_unicode": false,
+        "variable_sandbox": false,
+        "configuration_legitime": true,
+        "ip_interne_seule": false
+      },
+      "yara_chaines_detectees": [
+        "$reg_run",
+        "$sched_task",
+        "$hidden_win"
+      ],
+      "sigma_variantes_flags": {
+        "bypass_seul": true,
+        "hidden_seul": true,
+        "deux_flags": true,
+        "aucun_flag": false
+      }
+    },
+    "results/v5_validation_humaine": {
+      "sigma": {
+        "valide": true,
+        "test_concluant": true,
+        "test_reussi": true,
+        "detections_sur_edr": [
+          "edr_events.jsonl:2 (process_create)"
+        ],
+        "regle_sha256": "c8c4bcb07cf4fc57934efbe776257f1e7631655f20d52c5f2701da6c2ee42b3a",
+        "titre": "PowerShell Execution via Outlook",
+        "logsource": "SigmaLogSource(category='process_creation', product='windows', service=None, definition=None, source=None, custom_attributes=None)",
+        "corpus_sha256": "cb09edd06642a8324f9b4b404c78c26420a60f8f56742c9fc69afb5d46f948e5",
+        "faux_positifs": [],
+        "faux_negatifs": [],
+        "nb_negatifs": 4
+      },
+      "yara": {
+        "compile": true,
+        "test_concluant": true,
+        "verdict": "OK",
+        "regle_sha256": "7ce6d9ee8331f4cccbf1e16e20e5cbf4c96c376fc63babe1b05ee179c23b6653",
+        "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+        "vrais_positifs": [
+          "facture_2024-11.ps1.txt"
+        ],
+        "faux_negatifs": [],
+        "faux_positifs": [],
+        "nb_scripts_legitimes_testes": 6
+      },
+      "yara_extra_benins": {
+        "documentation_amsi": true,
+        "documentation_keyboard": true,
+        "documentation_unicode": true,
+        "variable_sandbox": true,
+        "configuration_legitime": false,
+        "ip_interne_seule": false
+      },
+      "yara_chaines_detectees": [
+        "$keylog_api",
+        "$keylog_api2",
+        "$exfil_url",
+        "$sandbox_check"
+      ],
+      "sigma_variantes_flags": {
+        "bypass_seul": true,
+        "hidden_seul": true,
+        "deux_flags": true,
+        "aucun_flag": false
+      }
+    }
+  },
+  "note_reorganisation": "Les résultats ci-dessous ont été produits avant la réorganisation. Les fonctions de validation étaient alors dans tools.py ; elles sont maintenant séparées dans src/cyber_harness/detection/. Les clés de résultats suivent les chemins actuels du dépôt."
+}

@@ -1,0 +1,9 @@
+{
+  "compile": false,
+  "test_concluant": false,
+  "verdict": "À REVOIR",
+  "regle_sha256": "c764cebdf80b697a9fbf62cefa8deb151fa1cfb0a94fcadddabb2f35efc031f4",
+  "corpus_sha256": "80716d103cb47434d49e2899c9e19578b2907e1f24974b61991dc2c9ef615702",
+  "erreur": "line 18: unreferenced string \"$task_trigger\"",
+  "tentative": 4
+}

@@ -1,0 +1,53 @@
+{
+  "statut": "incomplet",
+  "erreurs": [
+    "ioc : echec — save_iocs : 3 appels invalides ; dernier refus : Vérifier l'IOC et conserver toutes ses occurrences exactes",
+    "confinement : bloquee — Prérequis ioc : phase echec",
+    "Étape incomplète : iocs",
+    "Étape incomplète : proposal",
+    "Étape incomplète : decision"
+  ],
+  "phases": {
+    "preuves": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 3
+    },
+    "ioc": {
+      "statut": "echec",
+      "raisons": [
+        "save_iocs : 3 appels invalides ; dernier refus : Vérifier l'IOC et conserver toutes ses occurrences exactes"
+      ],
+      "invocations": 3
+    },
+    "mitre": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "regles": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    },
+    "confinement": {
+      "statut": "bloquee",
+      "raisons": [
+        "Prérequis ioc : phase echec"
+      ],
+      "invocations": 0
+    },
+    "protocole": {
+      "statut": "ignoree",
+      "raisons": [
+        "Aucun accord humain : protocole interdit"
+      ],
+      "invocations": 0
+    },
+    "rapport": {
+      "statut": "terminee",
+      "raisons": [],
+      "invocations": 1
+    }
+  }
+}

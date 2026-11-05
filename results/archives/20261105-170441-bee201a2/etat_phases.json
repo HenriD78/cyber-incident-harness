@@ -1,0 +1,51 @@
+{
+  "preuves": {
+    "statut": "echec",
+    "raisons": [
+      "Limite atteinte : Boucle détectée : read_evidence appelé 4 fois de suite avec les mêmes arguments ; analyse incomplète."
+    ],
+    "invocations": 2
+  },
+  "ioc": {
+    "statut": "bloquee",
+    "raisons": [
+      "Limite d'exécution atteinte ; budget réservé à la clôture"
+    ],
+    "invocations": 0
+  },
+  "mitre": {
+    "statut": "bloquee",
+    "raisons": [
+      "Limite d'exécution atteinte ; budget réservé à la clôture"
+    ],
+    "invocations": 0
+  },
+  "regles": {
+    "statut": "bloquee",
+    "raisons": [
+      "Limite d'exécution atteinte ; budget réservé à la clôture"
+    ],
+    "invocations": 0
+  },
+  "confinement": {
+    "statut": "bloquee",
+    "raisons": [
+      "Limite d'exécution atteinte ; budget réservé à la clôture"
+    ],
+    "invocations": 0
+  },
+  "protocole": {
+    "statut": "ignoree",
+    "raisons": [
+      "Aucun accord humain : protocole interdit"
+    ],
+    "invocations": 0
+  },
+  "rapport": {
+    "statut": "secours",
+    "raisons": [
+      "Analyse vérifiée indisponible : rapport assemblé par l'hôte sans synthèse LLM"
+    ],
+    "invocations": 0
+  }
+}
